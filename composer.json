@@ -9,7 +9,7 @@
             "name": "M T",
             "email": "matt@treagus.me",
             "role": "Owner"
-        },
+        }
     ],
     "require": {
         "php": ">=5.4.0",
