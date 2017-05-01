@@ -25,6 +25,5 @@
         "psr-0": {
             "Panlogic\\Fonix": "src/"
         }
-    },
-    "minimum-stability": "stable"
+    }
 }
