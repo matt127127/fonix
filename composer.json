@@ -1,20 +1,15 @@
 {
-    "name": "panlogic/fonix",
+    "name": "matt127127/fonix",
     "description": "Fonix.io PHP library helper",
     "keywords": ["fonix", "sms"],
-    "homepage": "http://github.com/panlogic/fonix",
+    "homepage": "http://github.com/matt127127/fonix",
     "license": "MIT",
     "authors": [
         {
-            "name": "Panlogic Ltd",
-            "email": "alerts@panlogic.co.uk",
+            "name": "M T",
+            "email": "matt@treagus.me",
             "role": "Owner"
         },
-        {
-            "name": "David Wright",
-            "email": "david.wright@panlogic.co.uk",
-            "role": "Developer"
-        }
     ],
     "require": {
         "php": ">=5.4.0",
