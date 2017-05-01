@@ -38,7 +38,7 @@ class FonixServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->bindShared('fonix', function ($app)
+		$this->app->bind('fonix', function ($app)
 		{
 			if (is_null(config('panlogic.fonix.live_apikey')))
 			{
