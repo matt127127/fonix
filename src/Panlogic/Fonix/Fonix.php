@@ -216,12 +216,12 @@ class Fonix {
 		$result->json = '';
 		if ($this->responseFormat == 'json')
 		{
-			$result->json = $response->json();
+			$result->json = json_decode($body);
 		}
 		$result->xml = '';
 		if ($this->responseFormat == 'xml')
 		{
-			$result->xml = $response->xml();
+			$result->xml = simplexml_load_string($body);
 		}
 		$result->body = $body;
 		return $result;
