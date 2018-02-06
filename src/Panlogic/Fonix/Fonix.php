@@ -161,13 +161,13 @@ class Fonix {
 	 */
 	private function call()
 	{
-		$this->requestOptions['body'] = array_merge($this->requestOptions['body'], ['ORIGINATOR' => $this->originator]);
+		$this->requestOptions['form_params'] = array_merge($this->requestOptions['form_params'], ['ORIGINATOR' => $this->originator]);
 		$requestOptions = [];
-		foreach($this->requestOptions['body'] as $key=>$value)
+		foreach($this->requestOptions['form_params'] as $key=>$value)
 		{
 			$requestOptions[strtoupper($key)] = $value;
 		}
-		$this->requestOptions['body'] = $requestOptions;
+		$this->requestOptions['form_params'] = $requestOptions;
 		try
 		{
 			switch(strtolower($this->method))
@@ -253,7 +253,7 @@ class Fonix {
 	 */
 	public function sendSMS($body = array(), $originator = null)
 	{
-		$this->requestOptions['body'] = $body;
+		$this->requestOptions['form_params'] = $body;
 		$this->endpoint = 'sendsms';
 		$this->setOriginator($originator);
 		return $this->response($this->call());
@@ -267,7 +267,7 @@ class Fonix {
 	 */
 	public function chargeSMS($body = array(), $originator = null)
 	{
-		$this->requestOptions['body'] = $body;
+		$this->requestOptions['form_params'] = $body;
 		$this->endpoint = 'chargesms';
 		$this->setOriginator($originator);
 		return $this->response($this->call());
@@ -281,7 +281,7 @@ class Fonix {
 	 */
 	public function chargeMobile($body = array(), $originator = null)
 	{
-		$this->requestOptions['body'] = $body;
+		$this->requestOptions['form_params'] = $body;
 		$this->endpoint = 'chargemobile';
 		$this->setOriginator($originator);
 		return $this->response($this->call());
@@ -295,8 +295,8 @@ class Fonix {
 	 */
 	public function sendBinarySMS($body = array(), $originator = null)
 	{
-		$this->requestOptions['body'] = array_merge($body, array('BINBODY' => isset($body['body']) ? $this->bstr2bin($body['body']) : '' ,'BINHEADER' => isset($body['header']) ? $this->bstr2bin($body['header']) : ''));
-		unset($this->requestOptions['body']['body']);
+		$this->requestOptions['form_params'] = array_merge($body, array('BINBODY' => isset($body['body']) ? $this->bstr2bin($body['body']) : '' ,'BINHEADER' => isset($body['header']) ? $this->bstr2bin($body['header']) : ''));
+		unset($this->requestOptions['form_params']['body']);
 		$this->endpoint = 'sendbinsms';
 		$this->setOriginator($originator);
 		return $this->response($this->call());
@@ -310,10 +310,10 @@ class Fonix {
 	 */
 	public function sendWapPush($body = array(), $originator = null)
 	{
-		$this->requestOptions['body'] = array_merge($body, array('PUSHTITLE' => isset($body['title']) ? $body['title'] : '' ,'PUSHLINK' => isset($body['link']) ? $body['link'] : ''));
-		unset($this->requestOptions['body']['body']);
-		unset($this->requestOptions['body']['title']);
-		unset($this->requestOptions['body']['link']);
+		$this->requestOptions['form_params'] = array_merge($body, array('PUSHTITLE' => isset($body['title']) ? $body['title'] : '' ,'PUSHLINK' => isset($body['link']) ? $body['link'] : ''));
+		unset($this->requestOptions['form_params']['body']);
+		unset($this->requestOptions['form_params']['title']);
+		unset($this->requestOptions['form_params']['link']);
 		$this->endpoint = 'sendwappush';
 		$this->setOriginator($originator);
 		return $this->response($this->call());
